@@ -23,10 +23,20 @@ env git clone --recursive https://github.com/wengwch/env-setup.git $CONF_PATH ||
 }
 
 cd $CONF_PATH
+
+# install tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ln -sf $CONF_PATH/dotfiles/tmux.conf ~/.tmux.conf
+
+cp $CONF_PATH/dotfiles/ssh_config ~/.ssh/config
+
+# install oh my zsh
 sh $OH_MY_ZSH/tools/install.sh
 
+# install k-vim
 sh $K_VIM/install.sh --for-vim
 
+# change shell
 chsh -s `which zsh`
 
 echo 'Done!'

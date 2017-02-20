@@ -1,0 +1,13 @@
+# 不保存known_hosts
+UserKnownHostsFile /dev/null
+
+# 不验证,免输入yes
+StrictHostKeyChecking no
+
+# 持久化链接
+ControlMaster auto
+ControlPersist 4h
+ControlPath /tmp/ssh_mux_%h_%p_%r
+#Compression yes
+
+ServerAliveInterval 60
